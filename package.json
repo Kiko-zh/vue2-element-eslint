@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "eslint --fix --ext .js,.jsx.vue src/ ./vue.config.js"
+    "lint": "eslint --fix --ext .js,.jsx.vue src/ ./vue.config.js --ignore-path .gitignore"
   },
   "dependencies": {
     "core-js": "^3.8.3",
