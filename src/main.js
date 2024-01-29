@@ -6,6 +6,9 @@ import '@/styles/index.scss' // global css
 import App from './App.vue'
 import router from './router'
 
+// import service-worker
+import './registerServiceWorker'
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 

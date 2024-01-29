@@ -1,16 +1,16 @@
 const path = require('path')
 
 module.exports = {
-  devServer: {
-    port: 8989,
-    proxy: {
-      '^/': {
-        target: 'http://testcs.hics.info',
-        changeOrigin: true,
-        ws: true
-      }
-    }
-  },
+  // devServer: {
+  //   port: 8989,
+  //   proxy: {
+  //     '^/': {
+  //       target: 'http://testcs.hics.info',
+  //       changeOrigin: true,
+  //       ws: true
+  //     }
+  //   }
+  // },
   configureWebpack: {
     name: process.env.VUE_APP_NAME,
     resolve: {
