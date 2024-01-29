@@ -32,3 +32,25 @@ self.addEventListener('fetch', event => {
     })
   )
 })
+
+function processData(data) {
+  return JSON.stringify({ text: `${JSON.parse(data).text} processed in service worker` })
+}
+
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'WEBSOCKET_DATA') {
+    const processedData = processData(event.data.data)
+    // 处理数据后，将其送回住线程
+    self.clients.matchAll({ type: 'window' }).then(clients => {
+      clients.forEach(client => {
+        // console.log('bb---', client, 'postMessage' in client)
+        if ('postMessage' in client) {
+          client.postMessage({
+            type: 'PROCESSED_DATA',
+            data: processedData
+          })
+        }
+      })
+    })
+  }
+})
