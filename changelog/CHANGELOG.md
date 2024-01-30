@@ -16,3 +16,13 @@ service worker 主要用于网路请求的拦截和管理，因此对于复杂�
 
 Service Worker与主线程之间的通信是异步的，因此需要考虑处理时许和数据同步问题。
 ![sw_postMessage](./imgs/sw_postMessage.png)
+
+#### sw接收server推送的数据
+
+```bash
+# 根目录下运行，可以接收server端 push来的数据
+python3 websocket_server.py
+node ./node_server_sw/sw_push_node.js
+```
+
+![sw watch server push](./imgs/sw_push.png)
